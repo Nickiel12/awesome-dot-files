@@ -1,4 +1,7 @@
 
+echo "Enter valid user for config files: "
+read USER
+
 cur_dir=`dirname $(realpath $0)`
 
 #from yay src github
