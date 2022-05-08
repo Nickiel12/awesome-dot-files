@@ -2,7 +2,7 @@
 cur_dir=`dirname $(realpath $0)`
 
 #from yay src github
-pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 
 $cur_dir"/yay_installs.sh"
 
