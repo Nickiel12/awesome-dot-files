@@ -1,5 +1,5 @@
 
-echo "Enter valid user home directory for config files: "
+echo "Enter valid user for config files: "
 read USER
 
 cur_dir=`dirname $(realpath $0)`
