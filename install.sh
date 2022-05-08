@@ -11,6 +11,8 @@ pacman -S --noconfirm $(cat $cur_dir$pacman_file | cut -d' ' -f1)
 
 yay_file="/yay_installs.sh"
 
+$cur_dir$yay_file
+
 # Recreate and copy config files
 # the \cp overwrite the alias to cp=cp -i, so there will be no confirmation
 \cp -R $cur_dir"/src/etc" "/"
