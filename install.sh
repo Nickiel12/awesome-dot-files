@@ -10,16 +10,19 @@ pacman -S --noconfirm base-devel
 pacman -R --noconfirm vim
 pacman -S --noconfirm $(cat $cur_dir"/pacman.txt" | cut -d' ' -f1)
 
+#from yay src github
+pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+
 $cur_dir"/yay_installs.sh"
 
 # Recreate and copy config files
 # the \cp overwrite the alias to cp=cp -i, so there will be no confirmation
-\cp -R $cur_dir"/src/etc" "/"
-\cp -R $cur_dir"/src/home" "/home/"$USER
+/bin/cp -R $cur_dir"/src/etc" "/"
+/bin/cp -R $cur_dir"/src/home" "/home/"$USER
 
 # https://tecadmin.net/adding-line-in-middle-of-file-using-command-in-linux/
 # -i "##i..." the -i says insert, and the ## before i says what line
-sed -i "80i$USER ALL=(ALL) ALL" /etc/sedoers
+sed -i "80i$USER ALL=(ALL) ALL" /etc/sudoers
 sed -i "19izstyle :compinstall filename '/home/$USER/.zshrc'" /home/$USER/.zshrc
 
 # for the "light" command
