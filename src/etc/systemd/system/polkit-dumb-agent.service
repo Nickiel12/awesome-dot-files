@@ -1,0 +1,9 @@
+[Unit]
+Description = Starts Polkit-Dumb-Agent
+After = network.target
+
+[Service]
+ExecStart = /usr/bin/polkit-dumb-agent
+
+[Install]
+WantedBy = multi-user.target
