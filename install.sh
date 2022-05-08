@@ -28,4 +28,5 @@ systemctl enable NetworkManager
 # github.com/jceb/dex
 # Use for autostarting .desktop files
 systemctl --user add-wants autostart.target polkit-dumb-agent.service
+# lightdm will start xorg, and xinit will start awesome
 systemctl enable lightdm
