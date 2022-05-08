@@ -31,6 +31,5 @@ lightdm-slick-greeter
 i3lock
 picom
 awesome
-vicious
 xautolock
 xbindkeys
