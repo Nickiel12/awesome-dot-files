@@ -1,0 +1,5 @@
+[Unit]
+Description=Current graphical user session autostart from github.com/jceb/dex
+Documentation=man:systemd.special(7)
+RefuseManualStart=no
+StopWhenUnneeded=no
