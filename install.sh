@@ -3,7 +3,6 @@ echo "Enter valid user for config files: "
 read USER
 
 cur_dir=`dirname $(realpath $0)`
-chmod +x $cur_dir/yay_installs.sh
 
 # Update system
 pacman -Syu --noconfirm
@@ -23,11 +22,13 @@ pacman -S --noconfirm $(cat $cur_dir"/pacman.txt" | cut -d' ' -f1)
 pacman -S --noconfirm --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay
 sudo -u $USER makepkg -si
 
+chown nicholas $cur_dir"/yay_installs.sh"
+chmod +x $cur_dir/yay_installs.sh
 sudo -u $USER $cur_dir"/yay_installs.sh"
+chown root $cur_dir"/yay_installs.sh"
 
 chmod +x $cur_dir"/src/home/.config/ranger/scope.sh"
 chmod +x $cur_dir"/src/home/.config/autostart.sh"
-chmod +x $cur_dir"/src/home/.config/.sh"
 
 # Recreate and copy config files
 # the \cp overwrite the alias to cp=cp -i, so there will be no confirmation
