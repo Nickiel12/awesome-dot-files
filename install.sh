@@ -18,3 +18,5 @@ cd /home/$USER
 git clone https://github.com/Nickiel12/awesome-dot-files
 chmod +x /home/$USER/awesome-dot-files/user-install.sh
 chmod +x /home/$USER/awesome-dot-files/yay_installs.sh
+
+echo "Now switch to $USER and run user-install.sh"
