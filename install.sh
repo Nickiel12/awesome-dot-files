@@ -4,7 +4,7 @@ read USER
 
 cur_dir=`dirname $(realpath $0)`
 
-
+pacman -Syu --noconfirm
 pacman -S --noconfirm --overwrite="*" archlinux-keyring
 pacman -S --noconfirm base-devel
 pacman -R --noconfirm vim
