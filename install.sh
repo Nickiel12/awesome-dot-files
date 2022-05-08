@@ -4,10 +4,10 @@ read USER
 
 cur_dir=`dirname $(realpath $0)`
 
-pacman_file="/pacman.txt"
 
 pacman -S --noconfirm --overwrite="*" archlinux-keyring base-devel
-pacman -S --noconfirm $(cat $cur_dir$pacman_file | cut -d' ' -f1)
+pacman -R --noconfirm vim
+pacman -S --noconfirm $(cat $cur_dir"/pacman.txt" | cut -d' ' -f1)
 
 yay_file="/yay_installs.sh"
 
