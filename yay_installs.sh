@@ -1,0 +1,5 @@
+yay -S --noconfirm zsh-theme-powerlevel10k-git
+yay -S --noconfirm i3lock-fancy-git
+yay -S --noconfirm visual-studio-code-bin
+yay -S --noconfirm ttf-meslo-nerd-font-powerlevel10k
+yay -S --noconfirm polkit-dumb-agent-git
