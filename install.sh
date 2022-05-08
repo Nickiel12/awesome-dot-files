@@ -5,7 +5,8 @@ read USER
 cur_dir=`dirname $(realpath $0)`
 
 
-pacman -S --noconfirm --overwrite="*" archlinux-keyring base-devel
+pacman -S --noconfirm --overwrite="*" archlinux-keyring
+pacman -S --noconfirm base-devel
 pacman -R --noconfirm vim
 pacman -S --noconfirm $(cat $cur_dir"/pacman.txt" | cut -d' ' -f1)
 
