@@ -25,5 +25,7 @@ sed -i "19izstyle :compinstall filename '/home/$USER/.zshrc'" /home/$USER/.zshrc
 usermod -G video $USER
 
 systemctl enable NetworkManager
+# github.com/jceb/dex
+# Use for autostarting .desktop files
 systemctl --user add-wants autostart.target polkit-dumb-agent.service
 systemctl enable lightdm
