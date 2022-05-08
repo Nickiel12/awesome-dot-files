@@ -18,7 +18,7 @@ yay_file="/yay_installs.sh"
 
 # https://tecadmin.net/adding-line-in-middle-of-file-using-command-in-linux/
 # -i "##i..." the -i says insert, and the ## before i says what line
-sed -i "80inick ALL=(ALL) ALL" /etc/sedoers
+sed -i "80i$USER ALL=(ALL) ALL" /etc/sedoers
 sed -i "19izstyle :compinstall filename '/home/$USER/.zshrc'" /home/$USER/.zshrc
 
 # for the "light" command
