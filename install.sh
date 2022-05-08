@@ -9,9 +9,7 @@ pacman -S --noconfirm --overwrite="*" archlinux-keyring base-devel
 pacman -R --noconfirm vim
 pacman -S --noconfirm $(cat $cur_dir"/pacman.txt" | cut -d' ' -f1)
 
-yay_file="/yay_installs.sh"
-
-$cur_dir$yay_file
+$cur_dir"/yay_installs.sh"
 
 # Recreate and copy config files
 # the \cp overwrite the alias to cp=cp -i, so there will be no confirmation
