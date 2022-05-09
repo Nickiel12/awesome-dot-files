@@ -26,10 +26,10 @@ while [ $# -gt 0 ] ; do
   case $1 in
     -a | --awesome) sudo $cur_dir/scripts/update_awesome_configs.sh $HOME;;
     -s | --shell)   sudo $cur_dir/scripts/update_shell_configs.sh $HOME;;
-    -r | --ranger)  sudo $cur_dir/scripts/update_ranger_configs.sh $HOME ;;
-    -n | --neofetch) $(copy_from_home_config $src/home/.config/neofetch $HOME/.config/neoftech)
-    -p | --picom     $(copy_from_home_config $src/home/.config/picom.conf $HOME/.config/picom.conf)
-    --sys)           $(copy_from_home_config $src/home/.config/systemd $HOME/.config/systemd)
+    -r | --ranger)   $(copy_from_home_config $src/home/.config/ranger $HOME/.config/ranger) ;;
+    -n | --neofetch) $(copy_from_home_config $src/home/.config/neofetch $HOME/.config/neoftech) ;;
+    -p | --picom     $(copy_from_home_config $src/home/.config/picom.conf $HOME/.config/picom.conf) ;;
+    --sys)           $(copy_from_home_config $src/home/.config/systemd $HOME/.config/systemd) ;;
     --all)          sudo $cur_dir/scripts/update_all.sh $HOME ;;
 
     -h | --help) 
