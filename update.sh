@@ -13,6 +13,14 @@ while [ $# -gt 0 ] ; do
     -s | --shell)   sudo $cur_dir/scripts/update_shell_configs.sh $HOME;;
     -r | --ranger)  sudo $cur_dir/scripts/update_ranger_configs.sh $HOME ;;
 
+
+    -h | --help) 
+        echo "\
+A simple inbetween script for updating config files
+-a, --awesome : awesome wm configs
+-s, --shell   : zsh, powerline, and .Xresources
+-r, --ranger  : ranger configs
+"
   esac
   shift
 done
