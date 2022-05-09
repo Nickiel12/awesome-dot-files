@@ -39,7 +39,7 @@ while [ $# -gt 0 ] ; do
     -n | --neofetch) $(copy_helper $src/home/.config/neofetch $HOME/.config/neoftech) ;;
     -p | --picom     $(copy_helper $src/home/.config/picom.conf $HOME/.config/picom.conf) ;;
     --sys)           $(copy_helper $src/home/.config/systemd $HOME/.config/systemd) ;;
-    --all)          sudo $cur_dir/scripts/update_all.sh $HOME ;;
+    --all)           $(copy_helper $src/home $HOME) & $(copy_helper $src/etc /etc) ;;
 
     -h | --help) 
         echo "\
