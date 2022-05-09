@@ -52,6 +52,7 @@ several flags can be passed, but for now, they must be individual flags (e.g. -a
 -p, --picom   : picom configuration file
 --sys         : systemd user settings
 --all         : updates all config files, even ones that don't have a dedicted flag above
+-h, --help    : Shows this menu
 "
   esac
   shift
