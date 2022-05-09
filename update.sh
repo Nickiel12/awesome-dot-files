@@ -17,6 +17,7 @@ while [ $# -gt 0 ] ; do
     -h | --help) 
         echo "\
 A simple inbetween script for updating config files
+several flags can be passed, but for now, they must be individual flags (e.g. -a -s vs -sa) (TODO: fix this)
 -a, --awesome : awesome wm configs
 -s, --shell   : zsh, powerline, and .Xresources
 -r, --ranger  : ranger configs
@@ -25,4 +26,3 @@ A simple inbetween script for updating config files
   esac
   shift
 done
-echo $U, $A $B
