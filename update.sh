@@ -8,10 +8,19 @@ fi
 cur_dir=`dirname $(realpath $0)`
 src=$cur_dir/src
 
-copy_from_home_config(){
+copy_helper(){
     src=$1
     dest=$2
     result=sudo /bin/cp -RT $src $dest
+}
+
+copy_shell_configs(){
+    # powerlevel
+    $(copy_helper $src/.p10k.zsh $HOME/.p10k.zsh)
+    # urxvt
+    $(copy_helper $src/.Xresources $HOME/.Xresources)
+    # zshell
+    $(copy_helper $src/.zshrc $HOME/.zshrc)
 }
 
 echo "WARNING: This WILL override ALL existing settings. Are you sure? (y/n)"
@@ -25,11 +34,11 @@ fi
 while [ $# -gt 0 ] ; do
   case $1 in
     -a | --awesome) sudo $cur_dir/scripts/update_awesome_configs.sh $HOME;;
-    -s | --shell)   sudo $cur_dir/scripts/update_shell_configs.sh $HOME;;
-    -r | --ranger)   $(copy_from_home_config $src/home/.config/ranger $HOME/.config/ranger) ;;
-    -n | --neofetch) $(copy_from_home_config $src/home/.config/neofetch $HOME/.config/neoftech) ;;
-    -p | --picom     $(copy_from_home_config $src/home/.config/picom.conf $HOME/.config/picom.conf) ;;
-    --sys)           $(copy_from_home_config $src/home/.config/systemd $HOME/.config/systemd) ;;
+    -s | --shell)    $(copy_shell_configs);;
+    -r | --ranger)   $(copy_helper $src/home/.config/ranger $HOME/.config/ranger) ;;
+    -n | --neofetch) $(copy_helper $src/home/.config/neofetch $HOME/.config/neoftech) ;;
+    -p | --picom     $(copy_helper $src/home/.config/picom.conf $HOME/.config/picom.conf) ;;
+    --sys)           $(copy_helper $src/home/.config/systemd $HOME/.config/systemd) ;;
     --all)          sudo $cur_dir/scripts/update_all.sh $HOME ;;
 
     -h | --help) 
