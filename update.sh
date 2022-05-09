@@ -33,7 +33,7 @@ fi
 
 while [ $# -gt 0 ] ; do
   case $1 in
-    -a | --awesome) sudo $cur_dir/scripts/update_awesome_configs.sh $HOME;;
+    -a | --awesome)  $(copy_helper $src/home/.config/awesome $HOME/.config/awesome);;
     -s | --shell)    $(copy_shell_configs);;
     -r | --ranger)   $(copy_helper $src/home/.config/ranger $HOME/.config/ranger) ;;
     -n | --neofetch) $(copy_helper $src/home/.config/neofetch $HOME/.config/neoftech) ;;
