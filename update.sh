@@ -11,7 +11,8 @@ src=$cur_dir/src
 copy_helper(){
     src=$1
     dest=$2
-    result=sudo /bin/cp -RT $src $dest
+    sudo /bin/cp -RT $src $dest 
+    echo "done"
 }
 
 copy_shell_configs(){
@@ -23,12 +24,12 @@ copy_shell_configs(){
     $(copy_helper $src/.zshrc $HOME/.zshrc)
 }
 
-echo "WARNING: This WILL override ALL existing settings. Are you sure? (y/n)"
-read response
-
-if ($respone -ne "y") then
+read -p "WARNING: This WILL override ALL existing settings. Are you sure? (y/n): " -n 1 -r
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    echo
     echo "Aborting"
-    exit
+    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
 fi
 
 while [ $# -gt 0 ] ; do
@@ -37,7 +38,7 @@ while [ $# -gt 0 ] ; do
     -s | --shell)    $(copy_shell_configs);;
     -r | --ranger)   $(copy_helper $src/home/.config/ranger $HOME/.config/ranger) ;;
     -n | --neofetch) $(copy_helper $src/home/.config/neofetch $HOME/.config/neoftech) ;;
-    -p | --picom     $(copy_helper $src/home/.config/picom.conf $HOME/.config/picom.conf) ;;
+    -p | --picom)    $(copy_helper $src/home/.config/picom.conf $HOME/.config/picom.conf) ;;
     --sys)           $(copy_helper $src/home/.config/systemd $HOME/.config/systemd) ;;
     --all)           $(copy_helper $src/home $HOME) & $(copy_helper $src/etc /etc) ;;
 
