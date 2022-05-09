@@ -1,3 +1,4 @@
+#!/bin/bash
 
 echo "Enter valid user for config files: "
 read USER
