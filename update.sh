@@ -28,6 +28,7 @@ while [ $# -gt 0 ] ; do
     -s | --shell)   sudo $cur_dir/scripts/update_shell_configs.sh $HOME;;
     -r | --ranger)  sudo $cur_dir/scripts/update_ranger_configs.sh $HOME ;;
     -n | --neofetch) $(copy_from_home_config $src/home/.config/neofetch $HOME/.config/neoftech)
+    -p | --picom     $(copy_from_home_config $src/home/.config/picom.conf $HOME/.config/picom.conf)
     --sys)          sudo $cur_dir/scripts/update_systemd_files.sh $HOME ;;
     --all)          sudo $cur_dir/scripts/update_all.sh $HOME ;;
 
@@ -39,6 +40,7 @@ several flags can be passed, but for now, they must be individual flags (e.g. -a
 -s, --shell   : zsh, powerline, and .Xresources
 -r, --ranger  : ranger configs
 -n, --neofetch: neofetch configs
+-p, --picom   : picom configuration file
 --sys         : systemd user settings
 --all         : updates all config files, even ones that don't have a dedicted flag above
 "
