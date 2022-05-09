@@ -5,8 +5,23 @@ if [ $(whoami) == "root" ]; then
     exit
 fi
 
-
 cur_dir=`dirname $(realpath $0)`
+src=$cur_dir/src
+
+copy_from_home_config(){
+    src=$1
+    dest=$2
+    result=sudo /bin/cp -RT $src $dest
+}
+
+echo "WARNING: This WILL override ALL existing settings. Are you sure? (y/n)"
+read response
+
+if ($respone -ne "y") then
+    echo "Aborting"
+    exit
+fi
+
 while [ $# -gt 0 ] ; do
   case $1 in
     -a | --awesome) sudo $cur_dir/scripts/update_awesome_configs.sh $HOME;;
