@@ -29,7 +29,7 @@ while [ $# -gt 0 ] ; do
     -r | --ranger)  sudo $cur_dir/scripts/update_ranger_configs.sh $HOME ;;
     -n | --neofetch) $(copy_from_home_config $src/home/.config/neofetch $HOME/.config/neoftech)
     -p | --picom     $(copy_from_home_config $src/home/.config/picom.conf $HOME/.config/picom.conf)
-    --sys)          sudo $cur_dir/scripts/update_systemd_files.sh $HOME ;;
+    --sys)           $(copy_from_home_config $src/home/.config/systemd $HOME/.config/systemd)
     --all)          sudo $cur_dir/scripts/update_all.sh $HOME ;;
 
     -h | --help) 
