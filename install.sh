@@ -13,19 +13,11 @@ pacman -R --noconfirm vim
 # install packages from file
 pacman -S --noconfirm $(cat $cur_dir"/pacman.txt" | cut -d' ' -f1)
 
-
-#cd /home/$USER
-#git clone https://github.com/Nickiel12/awesome-dot-files
-#chmod +x /home/$USER/awesome-dot-files/user-install.sh
-
 # install yay
-pacman -S --noconfirm --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay
-sudo -u $USER makepkg -si
-
-chown nicholas $cur_dir"/yay_installs.sh"
-chmod +x $cur_dir/yay_installs.sh
-sudo -u $USER $cur_dir"/yay_installs.sh"
-chown root $cur_dir"/yay_installs.sh"
+pacman -S --noconfirm --needed git base-devel
+cd /home/$USER/dot-files
+git clone https://aur.archlinux.org/yay.git
+cd $cur_dir
 
 chmod +x $cur_dir"/src/home/.config/ranger/scope.sh"
 chmod +x $cur_dir"/src/home/.config/autostart.sh"
@@ -48,8 +40,10 @@ usermod -G video $USER
 usermod -s /usr/bin/zsh $USER
 
 systemctl enable NetworkManager
-# github.com/jceb/dex
-# Use for autostarting .desktop files
-systemctl --user add-wants autostart.target polkit-dumb-agent.service
 # lightdm will start xorg, and xinit will start awesome
 systemctl enable lightdm
+
+/bin/cp $cur_dir/user-install.sh /home/$USER/user-install.sh
+chmod +x /home/$USER/user-install.sh
+/bin/cp $cur_dir/yay_installs.sh /home/$USER/dot-files/yay_installs.sh
+chmod +x /home/$USER/dot-files/yay_installs.sh
