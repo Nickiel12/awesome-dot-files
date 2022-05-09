@@ -27,7 +27,7 @@ while [ $# -gt 0 ] ; do
     -a | --awesome) sudo $cur_dir/scripts/update_awesome_configs.sh $HOME;;
     -s | --shell)   sudo $cur_dir/scripts/update_shell_configs.sh $HOME;;
     -r | --ranger)  sudo $cur_dir/scripts/update_ranger_configs.sh $HOME ;;
-    -n | --neofetch)sudo $cur_dir/scripts/update_neofetch_config.sh $HOME ;;
+    -n | --neofetch) $(copy_from_home_config $src/home/.config/neofetch $HOME/.config/neoftech)
     --sys)          sudo $cur_dir/scripts/update_systemd_files.sh $HOME ;;
     --all)          sudo $cur_dir/scripts/update_all.sh $HOME ;;
 
