@@ -26,6 +26,8 @@ key_conf.globalkeys = gears.table.join(
               {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
+    awful.key({ modkey, "Control" }, "l", function() awful.spawn.with_shell("/usr/bin/i3lock-fancy") end,
+              {description = "Lock the computer with i3lock-fancy", group="awesome"}),
 
     awful.key({ modkey,           }, "j",
         function ()
