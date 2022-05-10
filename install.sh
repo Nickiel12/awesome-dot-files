@@ -17,6 +17,7 @@ pacman -S --noconfirm $(cat $cur_dir"/pacman.txt" | cut -d' ' -f1)
 # install yay deps
 pacman -S --noconfirm --needed git base-devel
 
+# make required scripts executable
 chmod +x $cur_dir"/src/home/.config/ranger/scope.sh"
 chmod +x $cur_dir"/src/home/.config/autostart.sh"
 
