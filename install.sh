@@ -3,6 +3,25 @@
 echo "Enter valid user for config files: "
 read USER
 
+if [ `sed -n "/^$USER/p" /etc/passwd` ]
+then
+    echo "User [$USER] exists"
+else
+    echo "User [$USER] doesn't exist"
+    
+    read -p "Create new user? (y/n): " -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]
+    then
+        useradd -m -G video $USER
+        echo "Created user, continuing"
+    else
+        echo "Aborting"
+        [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
+    fi
+
+fi
+
 cur_dir=`dirname $(realpath $0)`
 
 # Update system
