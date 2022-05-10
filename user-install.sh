@@ -8,4 +8,4 @@ makepkg -si
 
 # github.com/jceb/dex
 # Use for autostarting .desktop files
-systemctl --user add-wants autostart.target polkit-dumb-agent.service
+sudo systemctl --user add-wants autostart.target polkit-dumb-agent.service
