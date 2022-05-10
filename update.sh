@@ -11,8 +11,10 @@ src=$cur_dir/src
 copy_helper(){
     src=$1
     dest=$2
-    sudo /bin/cp -RT $src $dest 
-    echo "done"
+
+    mkdir -p $dest
+
+    sudo /bin/cp -RT $src $dest
 }
 
 copy_shell_configs(){
@@ -25,9 +27,9 @@ copy_shell_configs(){
 }
 
 read -p "WARNING: This WILL override ALL existing settings. Are you sure? (y/n): " -n 1 -r
+echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
-    echo
     echo "Aborting"
     [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
 fi
@@ -39,6 +41,7 @@ while [ $# -gt 0 ] ; do
     -r | --ranger)   $(copy_helper $src/home/.config/ranger $HOME/.config/ranger) ;;
     -n | --neofetch) $(copy_helper $src/home/.config/neofetch $HOME/.config/neoftech) ;;
     -p | --picom)    $(copy_helper $src/home/.config/picom.conf $HOME/.config/picom.conf) ;;
+    --rofi)          $(copy_helper $src/home/.config/rofi $HOME/.config/rofi) ;;
     --sys)           $(copy_helper $src/home/.config/systemd $HOME/.config/systemd) ;;
     --all)           $(copy_helper $src/home $HOME) & $(copy_helper $src/etc /etc) ;;
 
@@ -51,6 +54,7 @@ several flags can be passed, but for now, they must be individual flags (e.g. -a
 -r, --ranger  : ranger configs
 -n, --neofetch: neofetch configs
 -p, --picom   : picom configuration file
+--rofi        : rofi configuration file
 --sys         : systemd user settings
 --all         : updates all config files, even ones that don't have a dedicted flag above
 -h, --help    : Shows this menu
@@ -58,3 +62,4 @@ several flags can be passed, but for now, they must be individual flags (e.g. -a
   esac
   shift
 done
+echo "Task didn't error, maybe"
