@@ -13,13 +13,14 @@ pacman -S --noconfirm --overwrite="*" archlinux-keyring
 pacman -R --noconfirm vim
 # install packages from file
 pacman -S --noconfirm $(cat $cur_dir"/pacman.txt" | cut -d' ' -f1)
+pacman -S --noconfirm sudo
 
 # install yay deps
 pacman -S --noconfirm --needed git base-devel
 
 # make required scripts executable
 chmod +x $cur_dir"/src/home/.config/ranger/scope.sh"
-chmod +x $cur_dir"/src/home/.config/autostart.sh"
+sudo -u $USER chmod +x $cur_dir"/src/home/.config/autostart.sh"
 
 # Recreate and copy config files
 # the \cp overwrite the alias to cp=cp -i, so there will be no confirmation
