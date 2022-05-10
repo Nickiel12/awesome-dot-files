@@ -1,11 +1,13 @@
 
-cd ~/dot-files/yay
+git clone "https://aur.archlinux.org/yay.git"
+cd ./yay
 
 makepkg -si
 
-~/dot-files/yay_installs.sh
+cd ./..
+./yay-installs.sh
 
 
 # github.com/jceb/dex
 # Use for autostarting .desktop files
-sudo systemctl --user add-wants autostart.target polkit-dumb-agent.service
+systemctl --user add-wants autostart.target polkit-dumb-agent.service

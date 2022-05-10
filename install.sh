@@ -14,11 +14,8 @@ pacman -R --noconfirm vim
 # install packages from file
 pacman -S --noconfirm $(cat $cur_dir"/pacman.txt" | cut -d' ' -f1)
 
-# install yay
+# install yay deps
 pacman -S --noconfirm --needed git base-devel
-cd /home/$USER/dot-files
-git clone https://aur.archlinux.org/yay.git
-cd $cur_dir
 
 chmod +x $cur_dir"/src/home/.config/ranger/scope.sh"
 chmod +x $cur_dir"/src/home/.config/autostart.sh"
@@ -44,7 +41,10 @@ systemctl enable NetworkManager
 # lightdm will start xorg, and xinit will start awesome
 systemctl enable lightdm
 
-/bin/cp $cur_dir/user-install.sh /home/$USER/user-install.sh
-chmod +x /home/$USER/user-install.sh
-/bin/cp $cur_dir/yay_installs.sh /home/$USER/dot-files/yay_installs.sh
-chmod +x /home/$USER/dot-files/yay_installs.sh
+cd "/home/"$USER
+git clone "https://github.com/Nickiel12/awesome-dot-files"
+cd ./awesome-dot-files
+
+chown -R $USER "/home"/$USER
+chmod +x ./user-install.sh
+chmod +x ./yay-installs.sh
