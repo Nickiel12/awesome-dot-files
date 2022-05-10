@@ -4,4 +4,3 @@ yay -S --noconfirm lightdm-settings
 yay -S --noconfirm visual-studio-code-bin
 yay -S --noconfirm ttf-meslo-nerd-font-powerlevel10k
 yay -S --noconfirm polkit-dumb-agent-git
-yay -S --noconfirm vicious-git

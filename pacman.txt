@@ -33,3 +33,4 @@ picom
 awesome
 xautolock
 xbindkeys
+vicious
