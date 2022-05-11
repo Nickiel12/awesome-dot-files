@@ -12,10 +12,8 @@ copy_helper(){
     src=$1
     dest=$2
 
-    if [ -e "$dest" ]
+    if [ ! -e "$dest" ]
     then
-        echo "file exists, updating"
-    else
         mkdir -p "$dest"
     fi
 
