@@ -12,7 +12,11 @@ copy_helper(){
     src=$1
     dest=$2
 
-    mkdir -p $dest
+    if [ -e $dest ]
+    then
+    else
+        mkdir -p $dest
+    fi
 
     sudo /bin/cp -RT $src $dest
 }
