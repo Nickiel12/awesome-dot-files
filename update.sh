@@ -12,11 +12,11 @@ copy_helper(){
     src=$1
     dest=$2
 
-    if [ -e $dest ]
+    if [ -e "$dest" ]
     then
         echo "file exists, updating"
     else
-        mkdir -p $dest
+        mkdir -p "$dest"
     fi
 
     sudo /bin/cp -RT $src $dest
@@ -41,8 +41,8 @@ fi
 
 while [ $# -gt 0 ] ; do
   case $1 in
-    -a | --awesome)  $(copy_helper $src/home/.config/awesome $HOME/.config/awesome);;
-    -s | --shell)    $(copy_shell_configs);;
+    -a | --awesome)  $(copy_helper $src/home/.config/awesome $HOME/.config/awesome) ;;
+    -s | --shell)    $(copy_shell_configs) ;;
     -r | --ranger)   $(copy_helper $src/home/.config/ranger $HOME/.config/ranger) ;;
     -n | --neofetch) $(copy_helper $src/home/.config/neofetch $HOME/.config/neoftech) ;;
     -p | --picom)    $(copy_helper $src/home/.config/picom.conf $HOME/.config/picom.conf) ;;
