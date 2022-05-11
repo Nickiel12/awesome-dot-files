@@ -19,11 +19,11 @@ copy_helper(){
 
 copy_shell_configs(){
     # powerlevel
-    $(copy_helper $src/.p10k.zsh $HOME/.p10k.zsh)
+    $(copy_helper $src/home/.p10k.zsh $HOME/.p10k.zsh)
     # urxvt
-    $(copy_helper $src/.Xresources $HOME/.Xresources)
+    $(copy_helper $src/home/.Xresources $HOME/.Xresources)
     # zshell
-    $(copy_helper $src/.zshrc $HOME/.zshrc)
+    $(copy_helper $src/home/.zshrc $HOME/.zshrc)
 }
 
 read -p "WARNING: This WILL override ALL existing settings. Are you sure? (y/n): " -n 1 -r
