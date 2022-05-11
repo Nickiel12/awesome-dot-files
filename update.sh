@@ -14,6 +14,7 @@ copy_helper(){
 
     if [ -e $dest ]
     then
+        echo "file exists, updating"
     else
         mkdir -p $dest
     fi
