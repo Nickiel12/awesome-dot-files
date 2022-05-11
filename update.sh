@@ -9,15 +9,15 @@ cur_dir=`dirname $(realpath $0)`
 src=$cur_dir/src
 
 copy_helper(){
-    src=$1
-    dest=$2
+    src="$1"
+    dest="$2"
 
     if [ ! -e "$dest" ]
     then
         mkdir -p "$dest"
     fi
 
-    sudo /bin/cp -RT $src $dest
+    sudo /bin/cp -RT "$src" "$dest"
 }
 
 copy_shell_configs(){
@@ -48,6 +48,7 @@ while [ $# -gt 0 ] ; do
     -n | --neofetch) $(copy_helper $src/home/.config/neofetch $HOME/.config/neoftech) ;;
     -p | --picom)    $(copy_helper $src/home/.config/picom.conf $HOME/.config/picom.conf) ;;
     --rofi)          $(copy_helper $src/home/.config/rofi $HOME/.config/rofi) ;;
+    --vcode)         $(copy_helper "$src/home/.config/Code - OSS" "$HOME/.config/Code - OSS") ;;
     --sys)           $(copy_helper $src/home/.config/systemd $HOME/.config/systemd) ;;
     --all)           $(copy_helper $src/home $HOME) & $(copy_helper $src/etc /etc) ;;
 
@@ -61,6 +62,7 @@ several flags can be passed, but for now, they must be individual flags (e.g. -a
 -n, --neofetch: neofetch configs
 -p, --picom   : picom configuration file
 --rofi        : rofi configuration file
+--vcode       : Visual Studio Code user settings
 --sys         : systemd user settings
 --all         : updates all config files, even ones that don't have a dedicted flag above
 -h, --help    : Shows this menu
