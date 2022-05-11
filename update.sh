@@ -23,6 +23,9 @@ copy_helper(){
 }
 
 copy_shell_configs(){
+    src=$1
+    HOME=$2
+
     # powerlevel
     $(copy_helper $src/home/.p10k.zsh $HOME/.p10k.zsh)
     # urxvt
@@ -42,7 +45,7 @@ fi
 while [ $# -gt 0 ] ; do
   case $1 in
     -a | --awesome)  $(copy_helper $src/home/.config/awesome $HOME/.config/awesome) ;;
-    -s | --shell)    $(copy_shell_configs) ;;
+    -s | --shell)    $(copy_shell_configs $src $HOME) ;;
     -r | --ranger)   $(copy_helper $src/home/.config/ranger $HOME/.config/ranger) ;;
     -n | --neofetch) $(copy_helper $src/home/.config/neofetch $HOME/.config/neoftech) ;;
     -p | --picom)    $(copy_helper $src/home/.config/picom.conf $HOME/.config/picom.conf) ;;
