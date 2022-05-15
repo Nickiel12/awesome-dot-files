@@ -1,0 +1,2 @@
+Several files (~~.zshrd sudoers~~) have hardcoded paths to user home.
+add conky
