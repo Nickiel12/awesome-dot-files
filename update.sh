@@ -12,10 +12,10 @@ copy_helper(){
     src="$1"
     dest="$2"
 
-    if [ ! -e "$dest" ]
-    then
-        mkdir -p "$dest"
-    fi
+    #if [ ! -e "$dest" ]
+    #then
+    #    mkdir -p "$dest"
+    #fi
 
     sudo /bin/cp -RT "$src" "$dest"
 }
@@ -25,11 +25,11 @@ copy_shell_configs(){
     HOME=$2
 
     # powerlevel
-    $(copy_helper $src/home/.p10k.zsh $HOME/.p10k.zsh)
+    sudo /bin/cp -RT $src/home/.p10k.zsh $HOME/.p10k.zsh
     # urxvt
-    $(copy_helper $src/home/.Xresources $HOME/.Xresources)
+    sudo /bin/cp -RT $src/home/.Xresources $HOME/.Xresources
     # zshell
-    $(copy_helper $src/home/.zshrc $HOME/.zshrc)
+    sudo /bin/cp -RT $src/home/.zshrc $HOME/.zshrc
 }
 
 read -p "WARNING: This WILL override ALL existing settings. Are you sure? (y/n): " -n 1 -r
