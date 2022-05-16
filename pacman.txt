@@ -34,3 +34,5 @@ awesome
 xautolock
 xbindkeys
 vicious
+
+luarocks
