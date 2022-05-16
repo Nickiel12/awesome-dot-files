@@ -17,6 +17,7 @@ local key_conf = require("key_conf")
 local menu_conf = require("menu_conf")
 local signals = require("signals")
 local rules = require("window_rules")
+local dbus = require 'lua-dbus'
 
 
 -- {{{ Error handling
