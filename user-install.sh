@@ -6,8 +6,9 @@ makepkg -si
 
 cd ..
 cd ./lua-ldbus
-
 makepkg -si
+
+luarocks install --server=https://luarocks.org/dev lua-dbus
 
 cd ./..
 ./yay-installs.sh
