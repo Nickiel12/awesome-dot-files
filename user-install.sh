@@ -5,10 +5,20 @@ cd ./yay
 makepkg -si
 
 cd ..
-cd ./lua-ldbus
+cd ./ldbus
 makepkg -si
 
-sudo luarocks install --server=http://luarocks.org/manifests/daurnimator ldbus DBUS_INCDIR=/usr/include/dbus-1.0/ DBUS_ARCH_INCDIR=/usr/lib/dbus-1.0/include
+cd ..
+cd ./luarocks
+tar zxpf luarocks.tar.gz
+cd ./luarocks-3.9.0
+./configure --lua-version=5.3
+make
+sudo make install
+cd ..
+
+
+sudo luarocks install --server=https://luarocks.org/dev lua-dbus DBUS_INCDIR=/usr/include/dbus-1.0/ DBUS_ARCH_INCDIR=/usr/lib/dbus-1.0/include
 
 cd ./..
 ./yay-installs.sh
