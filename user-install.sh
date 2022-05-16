@@ -4,6 +4,11 @@ cd ./yay
 
 makepkg -si
 
+cd ..
+cd ./lua-ldbus
+
+makepkg -si
+
 cd ./..
 ./yay-installs.sh
 
