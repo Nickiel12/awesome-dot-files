@@ -1,4 +1,4 @@
-pkgbase = lua-ldbus
+pkgbase = ldbus
 	pkgdesc = Lua Bindings to dbus.
 	pkgver = r118.a6e77a0
 	pkgrel = 1
