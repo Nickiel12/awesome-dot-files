@@ -1,7 +1,5 @@
-# Maintainer: Dominik Heidler <dominik@heidler.eu>
-
 pkgname=lua-ldbus
-pkgver=r118.a6e77a0
+pkgver=r135.6d4909c
 pkgrel=1
 pkgdesc="Lua Bindings to dbus."
 arch=('x86_64' 'i686')
@@ -12,13 +10,11 @@ provides=()
 depends=('lua' 'libdbus')
 makedepends=('luarocks' 'git')
 
-_commit="a6e77a080131b6e7f6fb0db27141fac5658f6b07"
-
-source=("https://github.com/daurnimator/ldbus.git#commit=${_commit}")
+source=("git+https://github.com/daurnimator/ldbus.git")
 md5sums=('SKIP')
 
 pkgver() {
-	cd "/ldbus"
+	cd "ldbus"
 	( set -o pipefail
 		git describe --long --tags 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
 		printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
@@ -26,13 +22,13 @@ pkgver() {
 }
 
 build() {
-	cd "/ldbus"
+	cd "ldbus"
 	luarocks make --pack-binary-rock ldbus-scm-0.rockspec \
 		DBUS_INCDIR=/usr/include/dbus-1.0/ \
 		DBUS_ARCH_INCDIR=/usr/lib/dbus-1.0/include
 }
 
 package() {
-	cd "$srcdir/ldbus"
+	cd "ldbus"
 	install -Dvsm755 ldbus.so ${pkgdir}/usr/lib/lua/5.3/ldbus.so
 }
