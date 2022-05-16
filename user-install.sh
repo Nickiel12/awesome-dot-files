@@ -16,9 +16,11 @@ cd ./luarocks-3.9.0
 make
 sudo make install
 cd ..
-
-
 sudo luarocks install --server=https://luarocks.org/dev lua-dbus DBUS_INCDIR=/usr/include/dbus-1.0/ DBUS_ARCH_INCDIR=/usr/lib/dbus-1.0/include
+sudo mv /usr/local/share/lua/5.3/lua-dbus/init.lua /usr/local/share/lua/5.3/lua-dbus/lua-dbus.lua
+# This one could be broken
+sudo mv /usr/local/share/lua/5.3/lua-dbus/awesome/init.lua /usr/local/share/lua/5.3/lua-dbus/awesome/lua-dbus.lua
+
 
 cd ./..
 ./yay-installs.sh

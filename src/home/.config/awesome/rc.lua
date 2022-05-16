@@ -1,3 +1,4 @@
+package.path = package.path ..";/usr/local/share/lua/5.3/lua-dbus/awesome/?.lua" .. ";/usr/local/share/lua/5.3/lua-dbus/?.lua"
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
