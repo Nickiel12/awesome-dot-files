@@ -1,6 +1,9 @@
 yay/*
-lua-ldbus/src/*
-lua-ldbus/ldbus*
-lua-ldbus/pkg/*
-lua-ldbus/src/*
-lua-ldbus/lua-*
+
+ldbus/src/*
+ldbus/ldbus/*
+ldbus/pkg/*
+ldbus/src/*
+ldbus/lua-*
+
+luarocks/luarocks-*
