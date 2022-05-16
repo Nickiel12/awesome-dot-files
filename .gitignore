@@ -1,3 +1,6 @@
 yay/*
 lua-ldbus/src/*
 lua-ldbus/ldbus*
+lua-ldbus/pkg/*
+lua-ldbus/src/*
+lua-ldbus/lua-*
