@@ -48,7 +48,7 @@ while [ $# -gt 0 ] ; do
     -n | --neofetch) $(copy_helper $src/home/.config/neofetch $HOME/.config/neoftech) ;;
     -p | --picom)    $(copy_helper $src/home/.config/picom.conf $HOME/.config/picom.conf) ;;
     --rofi)          $(copy_helper $src/home/.config/rofi $HOME/.config/rofi) ;;
-    --vcode)         $(copy_helper "$src/home/.config/Code - OSS" "$HOME/.config/Code - OSS") ;;
+    --vcode)         $(copy_helper "$src/home/.config/Code" "$HOME/.config/Code") ;;
     --sys)           $(copy_helper $src/home/.config/systemd $HOME/.config/systemd) ;;
     --all)           $(copy_helper $src/home $HOME) & $(copy_helper $src/etc /etc) ;;
 
