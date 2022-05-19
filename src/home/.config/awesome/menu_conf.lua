@@ -50,7 +50,7 @@ menu_conf.init = function(
                                     to = { 0, 30 },
                                 stops = { { 0, "#00C538" },
                                             { 1, "#FF5656" } } } },
-                        forced_height = 8, forced_width = 25,
+                        forced_height = 8, forced_width = 35,
                         direction = 'north', color = beautiful.fg_widget,
                         layout = wibox.container.rotate 
                     },
