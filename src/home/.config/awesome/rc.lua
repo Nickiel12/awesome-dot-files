@@ -1,4 +1,5 @@
-package.path = package.path ..";/usr/local/share/lua/5.3/lua-dbus/awesome/?.lua" .. ";/usr/local/share/lua/5.3/lua-dbus/?.lua"
+package.path = package.path ..';/usr/local/share/lua/5.3/?.lua;/usr/share/lua/5.3/?.lua;/usr/share/lua/5.3/?/init.lua;/usr/lib/lua/5.3/?.lua;/usr/lib/lua/5.3/?/init.lua;./?.lua;./?/init.lua;/home/nicholas/.luarocks/share/lua/5.3/?.lua;/home/nicholas/.luarocks/share/lua/5.3/?/init.lua;/usr/local/share/lua/5.3/?/init.lua'
+
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
@@ -18,7 +19,10 @@ local key_conf = require("key_conf")
 local menu_conf = require("menu_conf")
 local signals = require("signals")
 local rules = require("window_rules")
-local dbus = require 'lua-dbus'
+
+local luadbus = require("lua-dbus")
+
+
 
 
 -- {{{ Error handling
