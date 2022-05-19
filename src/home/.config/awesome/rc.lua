@@ -1,5 +1,5 @@
 package.path = package.path .. ';/usr/local/share/lua/5.3/?.lua;/usr/share/lua/5.3/?.lua;/usr/share/lua/5.3/?/init.lua;/usr/lib/lua/5.3/?.lua;/usr/lib/lua/5.3/?/init.lua;./?.lua;./?/init.lua;/home/nicholas/.luarocks/share/lua/5.3/?.lua;/home/nicholas/.luarocks/share/lua/5.3/?/init.lua;/usr/local/share/lua/5.3/?/init.lua'
-                            ..";/usr/local/share/lua/5.3/lua-dbus/awesome/?.lua" .. ";/usr/local/share/lua/5.3/lua-dbus/?.lua"
+                            ..";/usr/local/share/lua/5.3/lua-dbus/awesome/?.lua" .. ";/usr/local/share/lua/5.3/lua-dbus/?.lua;/usr/local/share/lua/5.3/?.lua"
 package.cpath = package.cpath .. ';/usr/lib/lua/5.3/?.so;/usr/lib/lua/5.3/loadall.so;./?.so;/home/nicholas/.luarocks/lib/lua/5.3/?.so;/usr/local/lib/lua/5.3/?.so'
 
 -- If LuaRocks is installed, make sure that packages installed through it are
