@@ -20,9 +20,7 @@ local menu_conf = require("menu_conf")
 local signals = require("signals")
 local rules = require("window_rules")
 
-local luadbus = require("lua-dbus")
-
-
+local dbus = require 'lua-dbus'
 
 
 -- {{{ Error handling
@@ -52,8 +50,8 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-local theme_dir = gears.filesystem.get_themes_dir() .. "default/theme.lua"
-beautiful.init(theme_dir)
+local theme_name = "galaxymenu"
+beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), theme_name ))
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
