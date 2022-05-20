@@ -1,3 +1,6 @@
+package.path = package.path .. ';/usr/local/share/lua/5.3/?.lua;/usr/share/lua/5.3/?.lua;/usr/share/lua/5.3/?/init.lua;/usr/lib/lua/5.3/?.lua;/usr/lib/lua/5.3/?/init.lua;./?.lua;./?/init.lua;/home/nick/.luarocks/share/lua/5.3/?.lua;/home/nick/.luarocks/share/lua/5.3/?/init.lua;/usr/local/share/lua/5.3/?/init.lua;/home/nicholas/.luarocks/share/lua/5.3/?.lua;/home/nicholas/.luarocks/share/lua/5.3/?/init.lua'
+package.cpath = package.cpath .. ';/usr/lib/lua/5.3/?.so;/usr/lib/lua/5.3/loadall.so;./?.so;/home/nick/.luarocks/lib/lua/5.3/?.so;/usr/local/lib/lua/5.3/?.so;/home/nicholas/.luarocks/lib/lua/5.3/?.so'
+
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
@@ -18,10 +21,37 @@ local menu_conf = require("menu_conf")
 local signals = require("signals")
 local rules = require("window_rules")
 
-local dbus = require 'dbus_proxy'
-naughty.notify({ preset = naughty.config.presets.critical,
-                 title = "Oops, there were errors during startup!",
-                 text = dbus.Proxy })
+-- local dbus = require("dbus")
+
+--[[
+GLib = require("lgi").GLib
+-- Set up the code, then do
+ctx = GLib.MainLoop():get_context()
+-- Run a single non-blocking iteration
+if ctx:iteration() == true then
+  print("something changed here too!")
+end
+
+local p = require 'dbus_proxy'
+local proxy = p.Proxy:new(
+  {
+    bus = p.Bus.SESSION,
+    name = "org.awesome.galaxymenu",
+    interface = "org.awsome.galaxymenu",
+    path = "/org/awsome/galaxymenu/Main"
+  }
+)
+
+proxy:connect_signal(
+  function (p, x, y)
+    assert(p == proxy)    
+    naughty.notify({ preset = naughty.config.presets.critical,
+    title = "Oops, there were errors during startup!",
+    text = "SomeSignalName emitted with params: " })
+  end,
+  "Signal"
+)
+--]]
 
 
 -- {{{ Error handling
