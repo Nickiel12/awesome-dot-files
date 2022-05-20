@@ -1,4 +1,6 @@
 
+gobject-introspection
+
 alsa-lib
 alsa-utils
 light
