@@ -5,6 +5,15 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
+
+export LUA_PATH='/usr/local/share/lua/5.3/?.lua;/usr/share/lua/5.3/?.lua;/usr/share/lua/5.3/?/init.lua;/usr/lib/lua/5.3/?.lua;/usr/lib/lua/5.3/?/init.lua;./?.lua;./?/init.lua;/home/nick/.luarocks/share/lua/5.3/?.lua;/home/nick/.luarocks/share/lua/5.3/?/init.lua;/usr/local/share/lua/5.3/?/init.lua'
+export LUA_CPATH='/usr/lib/lua/5.3/?.so;/usr/lib/lua/5.3/loadall.so;./?.so;/home/nick/.luarocks/lib/lua/5.3/?.so;/usr/local/lib/lua/5.3/?.so'
+export PATH='/home/nick/.luarocks/bin:/home/nick/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl'
+
+xinput set-prop 14 "libinput Tapping Enabled" "1"
+xinput set-prop 14 "libinput Tapping Drag Enabled" "1"
+xinput set-prop 14 "libinput Natural Scrolling Enabled" "1"
+
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
