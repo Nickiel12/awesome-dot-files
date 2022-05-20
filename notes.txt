@@ -3,8 +3,7 @@ dbus_proxy
 also /bin/lua5.3 does not keep local variables
 
 check what deps lgi needs 
-probably just these, but try only one at a time
-gobject-introspection-runtime gobject-introspection
+ gobject-introspection
 
 https://github.com/lgi-devs/lgi
 https://github.com/stefano-m/lua-dbus_proxy/
