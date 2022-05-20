@@ -1,13 +1,17 @@
-local dbus = require 'lua-dbus'
+local p = require 'dbus_proxy'
+
+local dbus = {}
+
+dbus.proxy = p.Proxy:new(
+  {
+    bus = p.Bus.SESSION,
+    name = "org.awesome.galaxymenu",
+    interface = "org.awsome.galaxymenu",
+    path = "/org/awsome/galaxymenu/Main"
+  }
+)
 
 
-local function on_signal (...)
-    -- react on signal here
-end
-
-local signal_opts = {
-    bus = 'session',
-    interface = 'org.awesomewm.galaxymenu', -- or something appropriate ;)
+dbus.callback = function () {
+    
 }
--- add signal handler
-dbus.on('Signal', on_signal, signal_opts)
