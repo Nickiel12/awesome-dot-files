@@ -14,7 +14,7 @@ local theme = {}
 theme.font          = "DejaVu Sans Condensed Regular 10"
 
 theme.bg_normal     = "#222222"
-theme.bg_focus      = "#535d6c"
+theme.bg_focus      = "#004B25"
 theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
@@ -27,7 +27,7 @@ theme.fg_minimize   = "#ffffff"
 theme.useless_gap   = dpi(3)
 theme.border_width  = dpi(1)
 theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
+theme.border_focus  = "#00FF80"
 theme.border_marked = "#91231c"
 
 -- There are other variable sets
@@ -36,6 +36,7 @@ theme.border_marked = "#91231c"
 -- taglist_[bg|fg]_[focus|urgent|occupied|empty|volatile]
 -- tasklist_[bg|fg]_[focus|urgent]
 -- titlebar_[bg|fg]_[normal|focus]
+theme.titlebar_bg_focus = "#03723A"
 -- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
 -- mouse_finder_[color|timeout|animate_timeout|radius|factor]
 -- prompt_[fg|bg|fg_cursor|bg_cursor|font]
