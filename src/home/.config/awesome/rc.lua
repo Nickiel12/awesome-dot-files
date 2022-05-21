@@ -109,11 +109,13 @@ end
 -- }}}
 
 -- configuration - edit to your liking
-wp_index = 2
 wp_timeout  = 180
+
+-- simply put more pictures in this folder
 wp_path = string.format("%s/.config/awesome/themes/%s/wallpapers/", os.getenv("HOME"), theme_name )
 wp_filter = function(s) return string.match(s,"%.jpg$") end
 wp_files = scandir(wp_path, wp_filter)
+wp_index = math.random( 1, #wp_files)
 
 local rand_wllppr = function()
 
