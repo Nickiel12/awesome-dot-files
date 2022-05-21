@@ -79,10 +79,66 @@ do
 end
 -- }}}
 
+
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 local theme_name = "galaxymenu"
 beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), theme_name ))
+-- beautiful.wallpaper = string.format("%s/.config/awesome/themes/%s/wallpapers/earth2.png", os.getenv("HOME"), theme_name )
+
+-- {{{ Function definitions
+
+-- scan directory, and optionally filter outputs
+function scandir(directory, filter)
+  local i, t, popen = 0, {}, io.popen
+
+  if not filter then
+      filter = function(s) return true end
+  end
+
+  print(filter)
+  for filename in popen('ls -a "'..directory..'"'):lines() do
+      if filter(filename) then
+          i = i + 1
+          t[i] = filename
+      end
+  end
+  return t
+end
+
+-- }}}
+
+-- configuration - edit to your liking
+wp_index = 2
+wp_timeout  = 180
+wp_path = string.format("%s/.config/awesome/themes/%s/wallpapers/", os.getenv("HOME"), theme_name )
+wp_filter = function(s) return string.match(s,"%.jpg$") end
+wp_files = scandir(wp_path, wp_filter)
+
+local rand_wllppr = function()
+
+  -- set wallpaper to current index for all screens
+  beautiful.wallpaper = wp_path .. wp_files[wp_index]
+  gears.wallpaper.maximized(beautiful.wallpaper)
+
+  -- stop the timer (we don't need multiple instances running at the same time)
+  wp_timer:stop()
+
+  -- get next random index
+  wp_index = math.random( 1, #wp_files)
+
+  --restart the timer
+  wp_timer.timeout = wp_timeout
+  wp_timer:start()
+end
+-- setup the timer
+wp_timer = timer { timeout = wp_timeout }
+wp_timer:connect_signal("timeout", rand_wllppr)
+
+-- initial start when rc.lua is first run
+wp_timer:start()
+rand_wllppr()
+
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
