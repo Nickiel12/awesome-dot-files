@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=org.galaxymenu.MyGreeter
+Exec=/home/nick/galaxy-interface/target/debug/galaxy-interface
+User=nicholas
