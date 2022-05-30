@@ -8,7 +8,7 @@ local awful = require("awful")
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
--- Theme handling library
+-- Theme handling librarykey
 local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
@@ -17,6 +17,8 @@ local key_conf = require("key_conf")
 local menu_conf = require("menu_conf")
 local signals = require("signals")
 local rules = require("window_rules")
+
+clientkeys = key_conf.clientkeys
 
 
 -- {{{ Error handling
