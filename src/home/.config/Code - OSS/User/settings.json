@@ -1,9 +1,0 @@
-{
-    "workbench.iconTheme": "material-icon-theme",
-    "editor.fontFamily": "'dejavu','Droid Sans Mono', 'monospace', monospace",
-    "window.zoomLevel": 1,
-    "editor.fontSize": 12,
-    "security.workspace.trust.untrustedFiles": "newWindow",
-    "files.autoSave": "afterDelay",
-    "terminal.integrated.fontFamily": "\"DejaVu Sans Mono for Powerline\", \"MesloLGS NF\""
-}

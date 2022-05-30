@@ -1,1 +1,9 @@
 yay/*
+
+ldbus/src/*
+ldbus/ldbus/*
+ldbus/pkg/*
+ldbus/src/*
+ldbus/lua-*
+
+luarocks/luarocks-*

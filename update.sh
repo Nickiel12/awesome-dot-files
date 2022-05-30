@@ -11,13 +11,20 @@ src=$cur_dir/src
 copy_helper(){
     src="$1"
     dest="$2"
+    do_su="$3"
 
     #if [ ! -e "$dest" ]
     #then
     #    mkdir -p "$dest"
     #fi
 
-    sudo /bin/cp -RT "$src" "$dest"
+    if [[ ! $do_su =~ ^[Yy]$ ]]
+    then
+        sudo /bin/cp -RT "$src" "$dest"
+    else
+        /bin/cp -RT "$src" "$dest"
+    fi
+
 }
 
 copy_shell_configs(){
@@ -42,15 +49,16 @@ fi
 
 while [ $# -gt 0 ] ; do
   case $1 in
-    -a | --awesome)  $(copy_helper $src/home/.config/awesome $HOME/.config/awesome) ;;
+    -a | --awesome)  $(copy_helper $src/home/.config/awesome $HOME/.config/awesome) ;; 
+    -d | --dbus)     $(copy_helper $src/home/.local/share/ $HOME/.local/share) ;;
     -s | --shell)    $(copy_shell_configs $src $HOME) ;;
     -r | --ranger)   $(copy_helper $src/home/.config/ranger $HOME/.config/ranger) ;;
     -n | --neofetch) $(copy_helper $src/home/.config/neofetch $HOME/.config/neoftech) ;;
     -p | --picom)    $(copy_helper $src/home/.config/picom.conf $HOME/.config/picom.conf) ;;
     --rofi)          $(copy_helper $src/home/.config/rofi $HOME/.config/rofi) ;;
-    --vcode)         $(copy_helper "$src/home/.config/Code - OSS" "$HOME/.config/Code - OSS") ;;
+    --vcode)         $(copy_helper "$src/home/.config/Code" "$HOME/.config/Code") ;;
     --sys)           $(copy_helper $src/home/.config/systemd $HOME/.config/systemd) ;;
-    --all)           $(copy_helper $src/home $HOME) & $(copy_helper $src/etc /etc) ;;
+    --all)           $(copy_helper $src/home $HOME) & $(copy_helper $src/etc /etc y) ;;
 
     -h | --help) 
         echo "\

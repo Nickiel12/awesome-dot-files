@@ -1,0 +1,9 @@
+Need to make sure that the environment variables take effect so that awesome can load
+dbus_proxy
+also /bin/lua5.3 does not keep local variables
+
+check what deps lgi needs 
+ gobject-introspection
+
+https://github.com/lgi-devs/lgi
+https://github.com/stefano-m/lua-dbus_proxy/

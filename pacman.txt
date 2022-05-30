@@ -1,7 +1,10 @@
 
+gobject-introspection
+
 alsa-lib
 alsa-utils
 light
+github-cli
 neofetch
 network-manager-applet
 polkit

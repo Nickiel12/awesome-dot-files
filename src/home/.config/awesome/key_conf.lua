@@ -18,6 +18,10 @@ local key_conf = {}
 
 -- {{{ Key bindings
 key_conf.globalkeys = gears.table.join(
+
+    -- misc hotkeys
+    awful.key({modkey,            }, "z", function() awful.spawn.with_shell("rofi -show run") end,
+              {description = "launch rofi run window", group="launcher"}),
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
@@ -29,6 +33,7 @@ key_conf.globalkeys = gears.table.join(
     awful.key({ modkey, "Control" }, "l", function() awful.spawn.with_shell("/usr/bin/i3lock-fancy") end,
               {description = "Lock the computer with i3lock-fancy", group="awesome"}),
 
+    -- focusing hotkeys
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
