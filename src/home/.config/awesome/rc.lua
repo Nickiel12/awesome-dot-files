@@ -21,7 +21,6 @@ local menu_conf = require("menu_conf")
 local signals = require("signals")
 local rules = require("window_rules")
 
-clientkeys = key_conf.clientkeys
 
 
 -- {{{ Error handling

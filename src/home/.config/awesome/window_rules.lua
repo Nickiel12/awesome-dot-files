@@ -1,5 +1,9 @@
 local awful = require("awful")
 local beautiful = require("beautiful")
+local keys = require("key_conf")
+
+local clientkeys = keys.clientkeys
+local clientbuttons = keys.clientbuttons
 
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
