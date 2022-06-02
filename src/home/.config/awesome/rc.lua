@@ -58,21 +58,13 @@ beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv
 -- {{{ Function definitions
 
 -- scan directory, and optionally filter outputs
-function scandir(directory, filter)
-  local i, t, popen = 0, {}, io.popen
-
-  if not filter then
-      filter = function(s) return true end
-  end
-
-  print(filter)
-  for filename in popen('ls -a "'..directory..'"'):lines() do
-      if filter(filename) then
-          i = i + 1
-          t[i] = filename
-      end
-  end
-  return t
+function scandir(directory)
+	local i, fileList, popen = 0, {}, io.popen
+	for filename in popen([[find "]] ..directory.. [[" -type f]]):lines() do
+	    i = i + 1
+	    fileList[i] = filename
+	end
+	return fileList
 end
 
 -- }}}
@@ -83,8 +75,8 @@ wp_timeout  = 180
 -- simply put more pictures in this folder
 wp_path = string.format("%s/.config/awesome/themes/%s/wallpapers/", os.getenv("HOME"), theme_name )
 wp_filter = function(s) return string.match(s,"%.jpg$") end
-wp_files = scandir(wp_path, wp_filter)
-wp_index = math.random( 1, #wp_files)
+wp_files = scandir(wp_path)
+wp_index = math.random(1, #wp_files)
 
 local rand_wllppr = function()
 
