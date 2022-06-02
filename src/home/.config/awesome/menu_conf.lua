@@ -3,6 +3,8 @@ local awful = require("awful")
 local gears = require("gears")
 local beautiful = require("beautiful")
 local wibox = require("wibox")
+
+-- Mod+p for a simple .desktop thing, probably not going to use
 local menubar = require("menubar")
 local vicious = require("vicious")
 
