@@ -10,6 +10,7 @@ network-manager-applet
 polkit
 sudo
 openssh
+d-feet
 
 firefox
 
