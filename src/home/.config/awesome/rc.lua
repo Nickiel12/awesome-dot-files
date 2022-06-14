@@ -81,7 +81,7 @@ wp_index = math.random(1, #wp_files)
 local rand_wllppr = function()
 
   -- set wallpaper to current index for all screens
-  beautiful.wallpaper = wp_path .. wp_files[wp_index]
+  beautiful.wallpaper = wp_files[wp_index]
   gears.wallpaper.maximized(beautiful.wallpaper)
 
   -- stop the timer (we don't need multiple instances running at the same time)
