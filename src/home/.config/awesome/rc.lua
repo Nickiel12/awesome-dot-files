@@ -139,10 +139,8 @@ root.buttons(gears.table.join(
     awful.button({ }, 5, awful.tag.viewprev)
 ))
 -- }}}
-
-
-awful.spawn.with_shell("/home/nicholas/.config/awesome/autostart.sh")
-
+awful.spawn.with_shell(string.format("%s/.config/awesome/autostart.sh", os.getenv("HOME")))
+awful.spawn.with_shell(string.format("%s/.config/polybar/start_polybar.sh", os.getenv("HOME")))
 -- XDG autostart
 -- awful.spawn.with_shell(
 --    'if (xrdb -query | grep -q "^awesome\\.started:\\s*true$"); then exit; fi;' ..
