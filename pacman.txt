@@ -30,6 +30,7 @@ ranger
 rofi
 rxvt-unicode
 
+polybar
 lightdm
 lightdm-slick-greeter 
 i3lock
