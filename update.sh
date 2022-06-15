@@ -49,16 +49,16 @@ fi
 
 while [ $# -gt 0 ] ; do
   case $1 in
-    -a | --awesome)  $(copy_helper $src/home/.config/awesome $HOME/.config/awesome) ;; 
-    -d | --dbus)     $(copy_helper $src/home/.local/share/ $HOME/.local/share) ;;
-    -s | --shell)    $(copy_shell_configs $src $HOME) ;;
-    -r | --ranger)   $(copy_helper $src/home/.config/ranger $HOME/.config/ranger) ;;
-    -n | --neofetch) $(copy_helper $src/home/.config/neofetch $HOME/.config/neofetch) ;;
-    -p | --polybar)  $(copy_helper $src/home/.config/polybar $HOME/.config/polybar) ;;
-    --picom)    $(copy_helper $src/home/.config/picom.conf $HOME/.config/picom.conf) ;;
-    --rofi)          $(copy_helper $src/home/.config/rofi $HOME/.config/rofi) ;;
-    --vcode)         $(copy_helper "$src/home/.config/Code" "$HOME/.config/Code") ;;
-    --sys)           $(copy_helper $src/home/.config/systemd $HOME/.config/systemd) ;;
+    -a | --awesome)  $(copy_helper $src/home/.config/awesome $HOME/.config/awesome n) ;; 
+    -d | --dbus)     $(copy_helper $src/home/.local/share/ $HOME/.local/share n) ;;
+    # -s | --shell)    $(copy_shell_configs $src $HOME n) ;;
+    -r | --ranger)   $(copy_helper $src/home/.config/ranger $HOME/.config/ranger n) ;;
+    -n | --neofetch) $(copy_helper $src/home/.config/neofetch $HOME/.config/neofetch n) ;;
+    -p | --polybar)  $(copy_helper $src/home/.config/polybar $HOME/.config/polybar n) ;;
+    --picom)    $(copy_helper $src/home/.config/picom.conf $HOME/.config/picom.conf n) ;;
+    --rofi)          $(copy_helper $src/home/.config/rofi $HOME/.config/rofi n) ;;
+    --vcode)         $(copy_helper "$src/home/.config/Code" "$HOME/.config/Code" n) ;;
+    --sys)           $(copy_helper $src/home/.config/systemd $HOME/.config/systemd n) ;;
     --all)           $(copy_helper $src/home $HOME) & $(copy_helper $src/etc /etc y) ;;
 
     -h | --help) 
@@ -66,7 +66,7 @@ while [ $# -gt 0 ] ; do
 A simple inbetween script for updating config files
 several flags can be passed, but for now, they must be individual flags (e.g. -a -s vs -sa) (TODO: fix this)
 -a, --awesome : awesome wm configs
--s, --shell   : zsh, powerline, and .Xresources
+-s, --shell   : zsh, powerline, and .Xresources NOTE: DISABLED
 -r, --ranger  : ranger configs
 -n, --neofetch: neofetch configs
 -p, --polybar : polybar configuration files
