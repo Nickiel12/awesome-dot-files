@@ -53,8 +53,9 @@ while [ $# -gt 0 ] ; do
     -d | --dbus)     $(copy_helper $src/home/.local/share/ $HOME/.local/share) ;;
     -s | --shell)    $(copy_shell_configs $src $HOME) ;;
     -r | --ranger)   $(copy_helper $src/home/.config/ranger $HOME/.config/ranger) ;;
-    -n | --neofetch) $(copy_helper $src/home/.config/neofetch $HOME/.config/neoftech) ;;
-    -p | --picom)    $(copy_helper $src/home/.config/picom.conf $HOME/.config/picom.conf) ;;
+    -n | --neofetch) $(copy_helper $src/home/.config/neofetch $HOME/.config/neofetch) ;;
+    -p | --polybar)  $(copy_helper $src/home/.config/polybar $HOME/.config/polybar) ;;
+    --picom)    $(copy_helper $src/home/.config/picom.conf $HOME/.config/picom.conf) ;;
     --rofi)          $(copy_helper $src/home/.config/rofi $HOME/.config/rofi) ;;
     --vcode)         $(copy_helper "$src/home/.config/Code" "$HOME/.config/Code") ;;
     --sys)           $(copy_helper $src/home/.config/systemd $HOME/.config/systemd) ;;
@@ -68,7 +69,8 @@ several flags can be passed, but for now, they must be individual flags (e.g. -a
 -s, --shell   : zsh, powerline, and .Xresources
 -r, --ranger  : ranger configs
 -n, --neofetch: neofetch configs
--p, --picom   : picom configuration file
+-p, --polybar : polybar configuration files
+--picom       : picom configuration file
 --rofi        : rofi configuration file
 --vcode       : Visual Studio Code user settings
 --sys         : systemd user settings
