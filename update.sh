@@ -18,12 +18,10 @@ copy_helper(){
     #    mkdir -p "$dest"
     #fi
 
-    if [[ ! $do_su =~ ^[Yy]$ ]]
-    then
-        sudo /bin/cp -RT "$src" "$dest"
-    else
-        /bin/cp -RT "$src" "$dest"
-    fi
+    case $3 in
+        y|ye|yes) sudo /bin/cp -RT "$src" "$dest" ;;
+        *) /bin/cp -RT "$src" "$dest" ;;
+    esac
 
 }
 
