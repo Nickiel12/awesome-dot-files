@@ -27,6 +27,7 @@ zsh
 zsh-completions
 
 ranger
+w3m
 rofi
 rxvt-unicode
 
