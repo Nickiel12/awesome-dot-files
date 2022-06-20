@@ -11,7 +11,8 @@ polkit
 sudo
 openssh
 d-feet
-pacman-contrib
+python-dbus
+python-gobject
 
 firefox
 

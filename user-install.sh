@@ -20,6 +20,8 @@ cd ..
 sudo luarocks install lgi
 sudo luarocks install dbus_proxy
 
+python -m pip install PyGObject
+
 cd ./..
 ./yay-installs.sh
 
