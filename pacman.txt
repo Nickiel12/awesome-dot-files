@@ -23,6 +23,8 @@ xorg-xauth
 xorg-xev
 xorg-xinit
 xorg-xinput
+xcape
+xorg-xmodmap
 
 gvim
 zsh
