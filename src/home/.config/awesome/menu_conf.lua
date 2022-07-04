@@ -8,12 +8,10 @@ local menubar = require("menubar")
 -- Mod+p for a simple .desktop thing, probably not going to use
 local vicious = require("vicious")
 
-
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
-
 
 local menu_conf = {}
 
@@ -55,41 +53,41 @@ menu_conf.init = function(
     local taglist_buttons = gears.table.join(
             awful.button({ }, 1, function(t) t:view_only() end),
             awful.button({ modkey }, 1, function(t)
-                        if client.focus then
-                            client.focus:move_to_tag(t)
-                        end
-                    end),
+                                if client.focus then
+                                    client.focus:move_to_tag(t)
+                                end
+                            end),
             awful.button({ }, 3, awful.tag.viewtoggle),
             awful.button({ modkey }, 3, function(t)
-                        if client.focus then
-                            client.focus:toggle_tag(t)
-                        end
-                    end),
+                                if client.focus then
+                                    client.focus:toggle_tag(t)
+                                end
+                            end),
             awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
             awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
             )
 
     local tasklist_buttons = gears.table.join(
             awful.button({ }, 1, function (c)
-                        if c == client.focus then
-                            c.minimized = true
-                        else
-                            c:emit_signal(
-                                "request::activate",
-                                "tasklist",
-                                {raise = true}
-                            )
-                        end
-                    end),
+                                if c == client.focus then
+                                    c.minimized = true
+                                else
+                                    c:emit_signal(
+                                        "request::activate",
+                                        "tasklist",
+                                        {raise = true}
+                                    )
+                                end
+                            end),
             awful.button({ }, 3, function()
-                        awful.menu.client_list({ theme = { width = 250 } })
-                    end),
+                                awful.menu.client_list({ theme = { width = 250 } })
+                            end),
             awful.button({ }, 4, function ()
-                        awful.client.focus.byidx(1)
-                    end),
+                                awful.client.focus.byidx(1)
+                            end),
             awful.button({ }, 5, function ()
-                        awful.client.focus.byidx(-1)
-                    end))
+                            awful.client.focus.byidx(-1)
+                            end))
 
     local function set_wallpaper(s)
         -- Wallpaper
@@ -158,8 +156,7 @@ menu_conf.init = function(
                 s.mylayoutbox,
             },
         }
-        end)  
-
+    end)  
     -- }}}
 end 
 
