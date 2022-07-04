@@ -139,7 +139,7 @@ root.buttons(gears.table.join(
     awful.button({ }, 5, awful.tag.viewprev)
 ))
 -- }}}
-awful.spawn.with_shell(string.format("%s/.config/awesome/autostart.sh", os.getenv("HOME")))
+awful.spawn.with_shell(string.format("%s/.config/autostart.sh", os.getenv("HOME")))
 awful.spawn.with_shell(string.format("%s/.config/polybar/start_polybar.sh", os.getenv("HOME")))
 -- XDG autostart
 -- awful.spawn.with_shell(
