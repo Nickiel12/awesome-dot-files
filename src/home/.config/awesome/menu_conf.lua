@@ -158,9 +158,8 @@ menu_conf.init = function(
                 s.mylayoutbox,
             },
         }
-        end)    
-    end)
-        end)    
+        end)  
+
     -- }}}
 end 
 
