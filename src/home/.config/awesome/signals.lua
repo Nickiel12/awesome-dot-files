@@ -44,11 +44,6 @@ client.connect_signal("request::titlebars", function(c)
         defenstrate_tooltip.text = "Defenstrate"
     end)
 
-    -- Then replace "awful.titlebar.widget.closebutton(c)" with "my_close_btn" later in titlebar setup.
-    naughty.notify({ preset = naughty.config.presets.critical,
-                             title = "Oops, an error happened!",
-                             text = tostring(my_close_btn._private.tooltip) })
-
     awful.titlebar(c) : setup {
         { -- Left
             awful.titlebar.widget.iconwidget(c),
@@ -68,7 +63,8 @@ client.connect_signal("request::titlebars", function(c)
             awful.titlebar.widget.maximizedbutton(c),
             --awful.titlebar.widget.stickybutton   (c),
             awful.titlebar.widget.ontopbutton    (c),
-            awful.titlebar.widget.closebutton    (c),
+            my_close_btn,
+            --awful.titlebar.widget.closebutton    (c),
             layout = wibox.layout.fixed.horizontal()
         },
         layout = wibox.layout.align.horizontal
