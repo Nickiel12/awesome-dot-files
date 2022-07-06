@@ -92,9 +92,13 @@ theme.titlebar_floating_button_focus_inactive  = themes_path.."/titlebar/floatin
 theme.titlebar_floating_button_normal_active = themes_path.."/titlebar/floating_normal_active.png"
 theme.titlebar_floating_button_focus_active  = themes_path.."/titlebar/floating_focus_active.png"
 
+--when not focused, but maximized
 theme.titlebar_maximized_button_normal_inactive = themes_path.."/titlebar/maximized_normal_inactive.png"
+--when focused and not maximized
 theme.titlebar_maximized_button_focus_inactive  = themes_path.."/titlebar/maximized_focus_inactive.png"
+--when not focused or maximized
 theme.titlebar_maximized_button_normal_active = themes_path.."/titlebar/maximized_normal_active.png"
+--when focused and maximized
 theme.titlebar_maximized_button_focus_active  = themes_path.."/titlebar/maximized_focus_active.png"
 
 --theme.wallpaper = themes_path.."/background.png"
