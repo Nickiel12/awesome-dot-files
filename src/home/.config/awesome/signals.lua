@@ -38,12 +38,12 @@ client.connect_signal("request::titlebars", function(c)
     -- The part that actually removes the tooltip
     my_close_btn._private.tooltip:remove_from_object(my_close_btn)
     
-    local defenstrate_tooltip = awful.tooltip {
-        objects        = { my_close_btn },
-        timer_function = function()
-            return "defenstrate")
-        end,
-    }
+    local defenstrate_tooltip = awful.tooltip { }
+    defenstrate_tooltip:add_to_object(my_close_btn)
+    my_close_btn:connect_signal('mouse::enter', function()
+        defenstrate_tooltip.text = "Defenstrate"
+    end)
+
     -- Then replace "awful.titlebar.widget.closebutton(c)" with "my_close_btn" later in titlebar setup.
     naughty.notify({ preset = naughty.config.presets.critical,
                              title = "Oops, an error happened!",
