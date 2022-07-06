@@ -3,6 +3,7 @@ local awful = require("awful")
 local gears = require("gears")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
+local naughty = require("naughty")
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
@@ -40,7 +41,7 @@ client.connect_signal("request::titlebars", function(c)
     naughty.notify({ preset = naughty.config.presets.critical,
                              title = "Oops, an error happened!",
                              text = tostring(my_close_btn._private.tooltip) })
-                             
+
     awful.titlebar(c) : setup {
         { -- Left
             awful.titlebar.widget.iconwidget(c),
