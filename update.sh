@@ -55,7 +55,8 @@ while [ $# -gt 0 ] ; do
     -p | --polybar)  $(copy_helper $src/home/.config/polybar $HOME/.config/polybar n) ;;
     --picom)    $(copy_helper $src/home/.config/picom.conf $HOME/.config/picom.conf n) ;;
     --rofi)          $(copy_helper $src/home/.config/rofi $HOME/.config/rofi n) ;;
-    --vcode)         $(copy_helper "$src/home/.config/Code" "$HOME/.config/Code" n) ;;
+    --vcode)         $(copy_helper "$src/home/.config/VSCodium" "$HOME/.config/VSCodium" n) ;;
+    -v | --vim)      $(copy_helper $src/home/.vimrc $HOME/.vimrc n);;
     --sys)           $(copy_helper $src/home/.config/systemd $HOME/.config/systemd n) ;;
     --all)           $(copy_helper $src/home $HOME) & $(copy_helper $src/etc /etc y) ;;
 
@@ -68,6 +69,7 @@ several flags can be passed, but for now, they must be individual flags (e.g. -a
 -r, --ranger  : ranger configs
 -n, --neofetch: neofetch configs
 -p, --polybar : polybar configuration files
+-v, --vim     : vim rc file
 --picom       : picom configuration file
 --rofi        : rofi configuration file
 --vcode       : Visual Studio Code user settings
