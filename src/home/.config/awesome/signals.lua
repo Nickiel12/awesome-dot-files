@@ -79,3 +79,33 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+client.connect_signal("property::floating", function(c)
+    if c.floating then
+        awful.titlebar.show(c)
+    else 
+        awful.titlebar.hide(c)
+    end
+end)
+
+function dynamic_title(c)
+    if c.floating or c.first_tag.layout.name == "floating" then
+        awful.titlebar.show(c)
+    else
+        awful.titlebar.hide(c)
+    end
+end
+
+tag.connect_signal("property::layout", function(t)
+    local clients = t:clients()
+    for k,c in pairs(clients) do
+        if c.floating or c.first_tag.layout.name == "floating" then
+            awful.titlebar.show(c)
+        else
+            awful.titlebar.hide(c)
+        end
+    end
+end)
+
+client.connect_signal("manage", dynamic_title)
+client.connect_signal("tagged", dynamic_title)
