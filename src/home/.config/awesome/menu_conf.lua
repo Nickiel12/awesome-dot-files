@@ -135,8 +135,27 @@ menu_conf.init = function(
             buttons = tasklist_buttons
         }
 
+        -- Created a custom widget
+        local custom_widget = {
+            {
+                {
+                    font = "Dejavu Sans 9",
+                    markup = "<span foreground='#ff00ff'> Stoof </span>",
+                    widget = wibox.widget.textbox,
+                },
+                layout = wibox.layout.fixed.horizontal,
+            },
+            bg = "#00ff00",
+            shape = gears.shape.rounded_rect,
+            widget = wibox.container.background,
+        }
+
         -- Create the wibox
-        s.mywibox = awful.wibar({ position = "top", screen = s })
+        s.mywibox = awful.wibar({ 
+            position = "top",
+            screen = s,
+            bg = "#0000",
+        })
 
         -- Add widgets to the wibox
         s.mywibox:setup {
@@ -146,8 +165,12 @@ menu_conf.init = function(
                 mylauncher,
                 s.mytaglist,
                 s.mypromptbox,
+                custom_widget,
             },
-            s.mytasklist, -- Middle widget
+            {
+                layout = wibox.layout.fixed.horizontal,
+                s.mytasklist, -- Middle widget
+            },
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
                 mykeyboardlayout,
