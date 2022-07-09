@@ -12,13 +12,13 @@ local theme = {}
 
 theme.font          = "DejaVu Sans Condensed Regular 10"
 
-theme.bg_normal     = "#222222"
+theme.bg_normal     = "#373B41"
 theme.bg_focus      = "#004B25"
-theme.bg_urgent     = "#ff0000"
+theme.bg_urgent     = "#C41113"
 theme.bg_minimize   = "#444444"
-theme.bg_systray    = theme.bg_normal
+theme.bg_systray    = "#00000000"
 
-theme.fg_normal     = "#aaaaaa"
+theme.fg_normal     = "#43B9EC"
 theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
@@ -57,13 +57,21 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 -- notification_[bg|fg]
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
-
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = themes_path.."/submenu.png"
 theme.menu_height = dpi(20)
 theme.menu_width  = dpi(100)
+theme.menu_text_color_contrast = "#002477"
+
+theme.taglist_fg_focus = theme.menu_text_color_contrast
+theme.taglist_bg_focus = "#79B7D1"
+theme.taglist_fg_urgent = theme.menu_text_color_contrast
+theme.taglist_fg_occupied = theme.menu_text_color_contrast
+theme.taglist_bg_occupied = "#3286AA"
+theme.taglist_bg_empty = theme.bg_normal
+
 
 -- You can add as many variables as
 -- you wish and access them by using

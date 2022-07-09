@@ -42,12 +42,12 @@ menu_conf.init = function(
     menubar.utils.terminal = terminal -- Set the terminal for applications that require it
     -- }}}
 
-    -- Keyboard map indicator and switcher
-    mykeyboardlayout = awful.widget.keyboardlayout()
-
     -- {{{ Wibar
     -- Create a textclock widget
-    mytextclock = wibox.widget.textclock()
+    mytextclock = wibox.widget.background()
+    mytextclock:set_widget(awful.widget.textclock())
+    mytextclock:set_bg(beautiful.bg_normal)
+
 
     -- Create a wibox for each screen and add it
     local taglist_buttons = gears.table.join(
@@ -111,16 +111,21 @@ menu_conf.init = function(
         -- Each screen has its own tag table.
         awful.tag({ "1", "2", "3", "4", "5" }, s, awful.layout.layouts[1])
     
-        -- Create a promptbox for each screen
-        s.mypromptbox = awful.widget.prompt()
         -- Create an imagebox widget which will contain an icon indicating which layout we're using.
         -- We need one layoutbox per screen.
-        s.mylayoutbox = awful.widget.layoutbox(s)
-        s.mylayoutbox:buttons(gears.table.join(
+        local layoutbox = awful.widget.layoutbox(s)
+        layoutbox:buttons(gears.table.join(
                             awful.button({ }, 1, function () awful.layout.inc( 1) end),
                             awful.button({ }, 3, function () awful.layout.inc(-1) end),
                             awful.button({ }, 4, function () awful.layout.inc( 1) end),
                             awful.button({ }, 5, function () awful.layout.inc(-1) end)))
+        
+        s.mylayoutbox = wibox.widget.background()
+        s.mylayoutbox:set_widget(layoutbox)
+        s.mylayoutbox:set_bg(beautiful.bg_normal)
+
+        s.mypromptbox = awful.widget.prompt()
+
         -- Create a taglist widget
         s.mytaglist = awful.widget.taglist {
             screen  = s,
@@ -135,24 +140,46 @@ menu_conf.init = function(
             buttons = tasklist_buttons
         }
 
-        function my_shape(cr, width, height)
-            -- insert custome shape building here:
-            local RADIUS = 4
-            gears.shape.rounded_rect(cr, width, height, RADIUS)
+        function left_endpoint_shape(cr, width, height)
+           -- insert custom shape building here:
+             gears.shape.transform(gears.shape.rectangular_tag) 
+                : translate(0, -height) 
+                    (cr, width, height*2, width)
         end
 
-        -- Created a custom widget
-        local custom_widget = {
+        function right_endpoint_shape(cr, width, height)
+            -- insert custom shape building here:
+            gears.shape.transform(gears.shape.rectangular_tag) 
+                : rotate_at(width/2, height, math.pi)
+                    : translate(0, height) 
+                    (cr, width, height*2, width)
+        end
+
+        -- Custom Widget the makes the left-side angle
+        local left_endpoint = {
             {
                 {
-                    font = "Dejavu Sans 9",
-                    markup = "<span foreground='#ff00ff'> Stoof </span>",
                     widget = wibox.widget.textbox,
                 },
                 layout = wibox.layout.fixed.horizontal,
             },
-            bg = "#00ff00",
-            shape = my_shape,
+            bg = beautiful.bg_normal,
+            forced_width = beautiful.menu_height,
+            shape = left_endpoint_shape,
+            widget = wibox.container.background,
+        }
+      
+        -- Custom widget that makes the right-side angle
+        local right_endpoint = {
+            {
+                {
+                    widget = wibox.widget.textbox,
+                },
+                layout = wibox.layout.fixed.horizontal,
+            },
+            bg = beautiful.bg_normal,
+            forced_width = beautiful.menu_height,
+            shape = right_endpoint_shape,
             widget = wibox.container.background,
         }
 
@@ -160,25 +187,32 @@ menu_conf.init = function(
         s.mywibox = awful.wibar({ 
             position = "top",
             screen = s,
-            bg = "#0000",
+            bg = beautiful.bg_systray
         })
 
         -- Add widgets to the wibox
         s.mywibox:setup {
             layout = wibox.layout.align.horizontal,
+            expand = "none",
             { -- Left widgets
                 layout = wibox.layout.fixed.horizontal,
+
                 mylauncher,
                 s.mytaglist,
                 s.mypromptbox,
-                custom_widget,
+                right_endpoint,
             },
             {
                 layout = wibox.layout.fixed.horizontal,
+
+                left_endpoint,
                 s.mytasklist, -- Middle widget
+                right_endpoint,
             },
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
+
+                left_endpoint,
                 mykeyboardlayout,
                 wibox.widget.systray(),
                 mytextclock,
