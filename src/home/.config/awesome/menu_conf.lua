@@ -135,6 +135,12 @@ menu_conf.init = function(
             buttons = tasklist_buttons
         }
 
+        function my_shape(cr, width, height)
+            -- insert custome shape building here:
+            local RADIUS = 4
+            gears.shape.rounded_rect(cr, width, height, RADIUS)
+        end
+
         -- Created a custom widget
         local custom_widget = {
             {
@@ -146,7 +152,7 @@ menu_conf.init = function(
                 layout = wibox.layout.fixed.horizontal,
             },
             bg = "#00ff00",
-            shape = gears.shape.rounded_rect,
+            shape = my_shape,
             widget = wibox.container.background,
         }
 
