@@ -130,14 +130,42 @@ menu_conf.init = function(
         s.mytaglist = awful.widget.taglist {
             screen  = s,
             filter  = awful.widget.taglist.filter.all,
-            buttons = taglist_buttons
+            buttons = taglist_buttons,
         }
 
         -- Create a tasklist widget
         s.mytasklist = awful.widget.tasklist {
             screen  = s,
             filter  = awful.widget.tasklist.filter.currenttags,
-            buttons = tasklist_buttons
+            buttons = tasklist_buttons,
+            layout = {
+                spacing = 0,
+                layout = wibox.layout.flex.horizontal,
+            },
+            widget_template = {
+                {
+                    {
+                        {
+                            {
+                                id     = 'icon_role',
+                                widget = wibox.widget.imagebox,
+                            },  
+                            margins = 0,
+                            widget = wibox.container.margin,
+                        },
+                        {
+                            id     = 'text_role',
+                            widget = wibox.widget.textbox,
+                        },
+                        layout = wibox.layout.fixed.horizontal,
+                    },
+                    left  = 20,
+                    right = 20,
+                    widget = wibox.container.margin,
+                },  
+                id    = 'background_role',
+                widget = wibox.container.background,
+            },
         }
 
         function left_endpoint_shape(cr, width, height)
