@@ -1,12 +1,14 @@
 configuration {
-/*	modi: "window,run,ssh";*/
+	modi: "window,run,ssh";
+	sidebar-mode: true;
 /*	font: "mono 12";*/
 /*	location: 0;*/
-  	yoffset: -150;
+  	yoffset: -50;
 /*	xoffset: 0;*/
-/*	fixed-num-lines: true;*/
-/*	show-icons: false;*/
-/*	terminal: "rofi-sensible-terminal";*/
+/*  fixed-num-lines: true;*/
+	cycle: true;
+	show-icons: true;
+	terminal: "urxvt";
 /*	ssh-client: "ssh";*/
 /*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
 /*	run-command: "{cmd}";*/
@@ -25,14 +27,12 @@ configuration {
 /*	sort: false;*/
 /*	sorting-method: "normal";*/
 /*	case-sensitive: false;*/
-/*	cycle: true;*/
-/*	sidebar-mode: false;*/
+/*  combi-modi: "window,run"; */
 /*	hover-select: false;*/
 /*	eh: 1;*/
 /*	auto-select: false;*/
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
-/*	combi-modi: "window,run";*/
 /*	matching: "normal";*/
 /*	tokenize: true;*/
 /*	m: "-5";*/
@@ -145,4 +145,39 @@ configuration {
       sorting-method:    "name";
   }
 }
-@theme "~/.config/rofi/themes/nickiel_theme.rasi"
+@theme "~/.config/rofi/lb.rasi"
+
+window {
+    width: 35%;
+}
+
+listview {
+    lines: 7;
+}
+
+prompt {
+    background-color: #5b5b5b; 
+    border-radius: 4px;
+    padding: 2px;
+}
+
+element {
+    orientation: horizontal;
+    children: [ element-icon, element-text];
+}
+
+element-icon {
+    size: 1.5 em;
+}
+
+element-text {
+    vertical-align: 0.5;
+}
+
+mode-switcher {
+    background-color: rgb ( 17, 138, 170 );
+}
+
+button.normal { 
+    text-color: rgb( 251, 255, 229);
+}
