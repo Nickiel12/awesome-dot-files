@@ -161,6 +161,10 @@ prompt {
     padding: 2px;
 }
 
+inputbar {
+    margin: 5px;
+}
+
 element {
     orientation: horizontal;
     children: [ element-icon, element-text];
