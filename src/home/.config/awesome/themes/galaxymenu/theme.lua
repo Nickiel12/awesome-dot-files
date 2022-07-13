@@ -29,7 +29,12 @@ theme.border_normal = "#000000"
 theme.border_focus  = "#00FF80"
 theme.border_marked = "#91231c"
 
--- There are other variable sets
+theme.tiled_titlebar_height    = dpi(5)
+theme.tiled_titlebar_center    = "#CECECE"
+theme.tiled_titlebar_bg_normal = theme.bg_systray
+theme.tiled_titlebar_bg_focus  = "#02709fBB"
+
+
 -- overriding the  one when
 -- defined, the sets are:
 -- taglist_[bg|fg]_[focus|urgent|occupied|empty|volatile]
