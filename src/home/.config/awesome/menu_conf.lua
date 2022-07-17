@@ -4,6 +4,7 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 local wibox = require("wibox")
 local menubar = require("menubar")
+local cpu_widget = require("cpu-widget")
 
 -- Mod+p for a simple .desktop thing, probably not going to use
 local vicious = require("vicious")
@@ -122,8 +123,6 @@ menu_conf.init = function(
         
         s.mylayoutbox = wibox.widget.background()
         s.mylayoutbox:set_widget(layoutbox)
-        s.mylayoutbox:set_bg(beautiful.bg_normal)
-
         s.mypromptbox = awful.widget.prompt()
 
         -- Create a taglist widget
@@ -167,6 +166,13 @@ menu_conf.init = function(
                 widget = wibox.container.background,
             },
         }
+
+        s.cpu_widget = cpu_widget({
+            width = 70,
+            step_width = 2,
+            step_spacing = 0,
+            background_color = beautiful.bg_normal,
+        })
 
         function left_endpoint_shape(cr, width, height)
            -- insert custom shape building here:
@@ -241,6 +247,7 @@ menu_conf.init = function(
                 layout = wibox.layout.fixed.horizontal,
 
                 left_endpoint,
+                s.cpu_widget,
                 mykeyboardlayout,
                 wibox.widget.systray(),
                 mytextclock,

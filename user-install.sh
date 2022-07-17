@@ -25,6 +25,14 @@ python -m pip install PyGObject
 cd ./..
 ./yay-installs.sh
 
+# vim coc-rust-analyzer plugin
+vim --cmd "" -c ":CocInstall coc-rust-analyzer" -c ":qa!"
+
+# awesomewm cpu-widget
+curl -sL https://raw.githubusercontent.com/streetturtle/awesome-wm-widgets/master/cpu-widget/cpu-widget.lua >> ~/.config/awesome/cpu-widget.lua
+
+# install rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # github.com/jceb/dex
 # Use for autostarting .desktop files
