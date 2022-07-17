@@ -66,6 +66,8 @@ cd "/home/"$USER
 git clone "https://github.com/Nickiel12/awesome-dot-files"
 cd ./awesome-dot-files
 
+curl -sL install-node.vercel.app/lts | bash
+
 chown -R $USER "/home"/$USER
 chmod +x ./user-install.sh
 chmod +x ./yay-installs.sh
