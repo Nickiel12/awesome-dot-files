@@ -44,3 +44,5 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 # github.com/jceb/dex
 # Use for autostarting .desktop files
 systemctl --user add-wants autostart.target polkit-dumb-agent.service
+
+echo "Please run vim to ensure plugins install correctly, then run ':CocInstall coc-rust-analyzer' to ensure rust is ready to go"
