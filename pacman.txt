@@ -26,7 +26,6 @@ xorg-xinit
 xorg-xinput
 xcape
 xorg-xmodmap
-xorg-xbacklight
 
 gvim
 zsh
