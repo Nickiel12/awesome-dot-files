@@ -3,6 +3,7 @@ gobject-introspection
 
 alsa-lib
 alsa-utils
+acpi
 light
 github-cli
 neofetch
@@ -25,6 +26,7 @@ xorg-xinit
 xorg-xinput
 xcape
 xorg-xmodmap
+xorg-xbacklight
 
 gvim
 zsh
