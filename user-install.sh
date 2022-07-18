@@ -30,6 +30,13 @@ vim --cmd "" -c ":CocInstall coc-rust-analyzer" -c ":qa!"
 
 # awesomewm cpu-widget
 curl -sL https://raw.githubusercontent.com/streetturtle/awesome-wm-widgets/master/cpu-widget/cpu-widget.lua >> ~/.config/awesome/cpu-widget.lua
+# awesomewm battery widget
+    #icon
+curl -sL https://github.com/streetturtle/awesome-wm-widgets/blob/master/batteryarc-widget/spaceman.jpg?raw=true >> ~/.config/awesome/awesome-wm-widgets/spaceman.jpg
+    #script
+curl -sL https://raw.githubusercontent.com/streetturtle/awesome-wm-widgets/master/batteryarc-widget/batteryarc.lua >> ~/.config/awesome/batteryarc.lua
+# awesomewm calander widget
+curl -sL https://raw.githubusercontent.com/streetturtle/awesome-wm-widgets/master/calendar-widget/calendar.lua >> ~/.config/awesome/calendar.lua
 
 # install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
