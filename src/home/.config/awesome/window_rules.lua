@@ -29,6 +29,7 @@ awful.rules.rules = {
           "pinentry",
         },
         class = {
+          "constellation",
           "Arandr",
           "Blueman-manager",
           "Gpick",
