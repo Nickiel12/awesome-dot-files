@@ -5,6 +5,7 @@ local beautiful = require("beautiful")
 local wibox = require("wibox")
 local menubar = require("menubar")
 local cpu_widget = require("cpu-widget")
+local battery_widget = require("batteryarc")
 
 -- Mod+p for a simple .desktop thing, probably not going to use
 local vicious = require("vicious")
@@ -167,6 +168,17 @@ menu_conf.init = function(
             },
         }
 
+        s.battery_widget = wibox.widget {
+            battery_widget({
+                show_current_level = true,
+                bg_color = "#ff0000",
+                size = 30,
+                arc_thickness = 3,
+            }),
+            bg = beautiful.bg_normal,
+            widget = wibox.container.background,
+        }
+
         s.cpu_widget = cpu_widget({
             width = 70,
             step_width = 2,
@@ -247,6 +259,7 @@ menu_conf.init = function(
                 layout = wibox.layout.fixed.horizontal,
 
                 left_endpoint,
+                s.battery_widget,
                 s.cpu_widget,
                 mykeyboardlayout,
                 wibox.widget.systray(),
