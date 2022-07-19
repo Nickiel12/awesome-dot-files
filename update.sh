@@ -1,10 +1,11 @@
 #!/bin/bash
-
 if [ $(whoami) == "root" ]; then
     echo "Please only run this script as user, because it contains user specific paths, and it will ask for sudo"
     exit
 fi
 
+
+cur_usr="$(whoami)"
 cur_dir=`dirname $(realpath $0)`
 src=$cur_dir/src
 
@@ -19,7 +20,7 @@ copy_helper(){
     #fi
 
     case $3 in
-        y|ye|yes) sudo /bin/cp -RT "$src" "$dest" ;;
+        y|ye|yes) sudo /bin/cp -RT "$src" "$dest" && sudo chown $cur_usr "$dest" ;;
         *) /bin/cp -RT "$src" "$dest" ;;
     esac
 
@@ -37,6 +38,14 @@ copy_shell_configs(){
     sudo /bin/cp -RT $src/home/.zshrc $HOME/.zshrc
 }
 
+copy_custom_commands() {
+    src=$1
+    
+    # custom sleep command
+    sudo /bin/cp -RT $src/usr/bin/sleep /usr/bin/sleep
+    sudo chown $cur_usr /usr/bin/sleep
+}
+
 read -p "WARNING: This WILL override ALL existing settings. Are you sure? (y/n): " -n 1 -r
 echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]
@@ -50,6 +59,7 @@ while [ $# -gt 0 ] ; do
     -a | --awesome)  $(copy_helper $src/home/.config/awesome $HOME/.config/awesome n) ;; 
     -d | --dbus)     $(copy_helper $src/home/.local/share/ $HOME/.local/share n) ;;
     # -s | --shell)    $(copy_shell_configs $src $HOME n) ;;
+    -s | --scripts)  $(copy_custom_commands $src) ;;
     -r | --ranger)   $(copy_helper $src/home/.config/ranger $HOME/.config/ranger n) ;;
     -n | --neofetch) $(copy_helper $src/home/.config/neofetch $HOME/.config/neofetch n) ;;
     -p | --polybar)  $(copy_helper $src/home/.config/polybar $HOME/.config/polybar n) ;;
