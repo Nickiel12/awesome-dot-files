@@ -42,8 +42,8 @@ copy_custom_commands() {
     src=$1
     
     # custom sleep command
-    sudo /bin/cp -RT $src/usr/bin/sleep /usr/bin/sleep
-    sudo chown $cur_usr /usr/bin/sleep
+    sudo /bin/cp -RT $src/usr/bin/knockout /usr/bin/knockout
+    sudo chown $cur_usr /usr/bin/knockout
 }
 
 read -p "WARNING: This WILL override ALL existing settings. Are you sure? (y/n): " -n 1 -r
