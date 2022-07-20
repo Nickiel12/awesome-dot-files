@@ -30,6 +30,8 @@ vim --cmd "" -c ":CocInstall coc-rust-analyzer" -c ":qa!"
 
 # awesomewm cpu-widget
 curl -sL https://raw.githubusercontent.com/streetturtle/awesome-wm-widgets/master/cpu-widget/cpu-widget.lua >> ~/.config/awesome/cpu-widget.lua
+# awesomewm ram widget
+curl -sL https://raw.githubusercontent.com/streetturtle/awesome-wm-widgets/master/ram-widget/ram-widget.lua >> ~/.config/awesome/ram-widget.lua
 # awesomewm battery widget
     #icon
 curl -sL https://github.com/streetturtle/awesome-wm-widgets/blob/master/batteryarc-widget/spaceman.jpg?raw=true >> ~/.config/awesome/awesome-wm-widgets/spaceman.jpg
