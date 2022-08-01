@@ -1,3 +1,4 @@
+colorscheme slate
 set autoindent
 set expandtab
 set tabstop=4
