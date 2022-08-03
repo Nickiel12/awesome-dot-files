@@ -1,3 +1,5 @@
+colorscheme elflord
+
 set autoindent
 set expandtab
 set tabstop=4
