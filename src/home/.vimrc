@@ -2,7 +2,7 @@ set autoindent
 set expandtab
 set tabstop=4
 set shiftwidth=4
-set nu
+set number
 syntax on
 syntax enable
 filetype plugin indent on
@@ -30,7 +30,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'bluz71/vim-moonfly-colors'
 
-call plug#end()
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -86,4 +85,5 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
+call plug#end()
 colorscheme moonfly
