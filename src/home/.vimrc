@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-colorscheme slate
-=======
->>>>>>> Stashed changes
 set autoindent
 set expandtab
 set tabstop=4
