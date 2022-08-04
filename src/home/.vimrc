@@ -2,6 +2,7 @@ set autoindent
 set expandtab
 set tabstop=4
 set shiftwidth=4
+set nu
 syntax on
 syntax enable
 filetype plugin indent on
