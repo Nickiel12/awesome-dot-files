@@ -6,6 +6,7 @@ local wibox = require("wibox")
 local menubar = require("menubar")
 local cpu_widget = require("cpu-widget")
 local battery_widget = require("batteryarc")
+local ram_widget = require("ram-widget")
 
 -- Mod+p for a simple .desktop thing, probably not going to use
 local vicious = require("vicious")
@@ -183,8 +184,23 @@ menu_conf.init = function(
             width = 70,
             step_width = 2,
             step_spacing = 0,
+            color = '#434c9e',
             background_color = beautiful.bg_normal,
         })
+
+        s.ram_widget = wibox.widget {
+            ram_widget({
+                --color_used=
+                --color_buf=
+                --color_free=
+                widget_width=35,
+                widget_height=35,
+                widget_show_buf=true,
+            }),
+            bg = beautiful.bg_normal,
+            widget = wibox.container.background,
+        }
+
 
         function left_endpoint_shape(cr, width, height)
            -- insert custom shape building here:
@@ -259,9 +275,9 @@ menu_conf.init = function(
                 layout = wibox.layout.fixed.horizontal,
 
                 left_endpoint,
-                s.battery_widget,
                 s.cpu_widget,
-                mykeyboardlayout,
+                s.ram_widget,
+                s.battery_widget,
                 wibox.widget.systray(),
                 mytextclock,
                 s.mylayoutbox,
